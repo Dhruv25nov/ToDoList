@@ -5,7 +5,7 @@ const date = require(__dirname + "/date.js")
 const mongoose = require("mongoose");
 const _ = require("lodash");
 
-// mongodb+srv://dhruv25nov:<password>@cluster0.2kgw67n.mongodb.net/?retryWrites=true&w=majority
+
 
 
 const url = "mongodb+srv://dhruv25nov:Dhruv25nov@cluster0.2kgw67n.mongodb.net/ToDoList?retryWrites=true&w=majority";
@@ -50,10 +50,10 @@ app.set("view engine", "ejs")
 
 app.get("/", function (req, res) {
 
-    // const day = date.getDate();
+
     Item.find()
         .then(items => {
-            // console.log(items);
+
             if (items.length === 0) {
                 Item.insertMany(defaultItems)
                     .then(() => {
@@ -79,14 +79,6 @@ app.get("/", function (req, res) {
 
 
 });
-
-// app.get("/work", function (req, res) {
-//     res.render("list", { listName: "Work", listItems: workList });
-// });
-
-// app.get("/about", function (req, res) {
-//     res.render("about");
-// })
 
 const listsSchema = new mongoose.Schema({
     name: String,
@@ -116,7 +108,7 @@ app.get('/:listName', (req, res) => {
 
             }
             else {
-                // console.log(listName)
+
                 res.render("list", { listName: foundList.name, listItems: foundList.items })
             }
 
